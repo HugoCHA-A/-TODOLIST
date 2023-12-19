@@ -1,14 +1,46 @@
-<h1> <%= @task.name %> </h1>
-
-<p>Description: <%= @task.description %></p>
-<p>Catégorie: <%= @task.category %></p>
-<p>Statut: <%= @task.status %></p>
-<p>Date butoire: <%= @task.deadline %></p>
-<p>Créée le: <%= @task.created_at.strftime('%F à %I:%M%p') %></p>
-<p>Créée par: <%= @task.user %></p>
-<p>Assignée à: <% @task.assigned_users %></p>
-<% if @task.updated_at? == true %>
-  <p>Mise à jour le: <%= @task.updated_at.strftime('%F à %I:%M%p') %></p>
-<% end %>
-<%= link_to 'Retour aux tâches', tasks_path %>
-<%= link_to 'Modifier la tâche', edit_task_path %>
+<div class="container">
+  <div class="card-container pt-5 pb-4">
+    <div class="card rounded-4 border-primary">
+      <div class="row">
+        <div class="col-6">
+          <h1 class="text-center mt-4"> <%= @task.name %> </h1>
+          <p class="text-center mt-3 pt-4"> <%= @task.description %></p>
+        </div>
+        <div class="col-6 mt-4 text-center">
+          <p>Catégorie: <%= @task.category %></p>
+          <p>Statut: <%= @task.status %></p>
+          <p>Date butoire: <%= @task.deadline %></p>
+          <p>Créée par: <%= @task.user %></p>
+          <p>Assignée à: <% @task.assigned_users %></p>
+        </div>
+      </div>
+      <div class="row pt-4">
+        <div class="col-6 text-center">
+          <p>Créée le: <%= @task.created_at.strftime('%F à %I:%M%p') %></p>
+        </div>
+        <div class="col-6 text-center">
+          <% if @task.updated_at == @task.created_at %>
+            <p>La tâche n'a pas encore été mise à jour</p>
+          <% else %>
+            <p>Mise à jour le: <%= @task.updated_at.strftime('%F à %I:%M%p') %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col-2"></div>
+    <div class="col-3 text-center bg-primary pt-3 rounded-4">
+      <%= link_to tasks_path, class: "text-decoration-none text-dark" do %>
+        <p>Retour à la page d'accueil</p>
+      <% end %>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-3 text-center bg-primary pt-3 rounded-4">
+      <%= link_to edit_task_path, class: "text-decoration-none text-dark" do  %>
+        <p>Modifier la tâche</p>
+      <% end %>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>

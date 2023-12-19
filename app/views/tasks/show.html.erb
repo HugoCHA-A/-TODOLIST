@@ -1,0 +1,14 @@
+<h1> <%= @task.name %> </h1>
+
+<p>Description: <%= @task.description %></p>
+<p>Catégorie: <%= @task.category %></p>
+<p>Statut: <%= @task.status %></p>
+<p>Date butoire: <%= @task.deadline %></p>
+<p>Créée le: <%= @task.created_at.strftime('%F à %I:%M%p') %></p>
+<p>Créée par: <%= @task.user %></p>
+<p>Assignée à: <% @task.assigned_users %></p>
+<% if @task.updated_at? == true %>
+  <p>Mise à jour le: <%= @task.updated_at.strftime('%F à %I:%M%p') %></p>
+<% end %>
+<%= link_to 'Retour aux tâches', tasks_path %>
+<%= link_to 'Modifier la tâche', edit_task_path %>

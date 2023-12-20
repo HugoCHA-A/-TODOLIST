@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     user.save!
     redirect_to user_path(user)
   end
+  
 
   def nickname
     @users = User.all

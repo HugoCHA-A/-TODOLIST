@@ -2,8 +2,8 @@ class Task < ApplicationRecord
   CATEGORY = ["Quotidienne", "Travail", "Hobbies", "Tâches ménagères", "Autre"]
   STATUS = ["En attente", "En cours", "Terminée"]
   PRIORITY = ["Moyenne", "Faible", "Elevée"]
-  USERS = ["Drakie", "Popopom", "Goldie", "TheFirst"]
-  ASSIGNED_USERS = ["Drakie", "Popopom", "Goldie", "TheFirst"]
+  USERS = @users.nickname
+  ASSIGNED_USERS = ["Drakie", "Popopom", "Goldie", "TheFirst", "Crapouax"]
 
 
   # validates :name, presence: :true

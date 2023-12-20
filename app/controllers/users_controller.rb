@@ -18,6 +18,17 @@ class UsersController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def nickname
+    @users = User.all
+      if @users == nil
+        User.new(nickname: "Crapouac", email: "hugo.antonietti@hotmail.fr")
+      else
+      @users.each |user| do
+        user.nickname
+      end
+    end
+  end
+
   private
 
   def user_params

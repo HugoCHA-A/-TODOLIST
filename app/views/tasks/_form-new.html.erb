@@ -23,8 +23,8 @@
         <div class="pb-4">
           <%= f.input :user, collection: Task::USERS, label: "Créée par:" %>
         </div>
-        <div class="mt-5 pt-3">
-          <%= f.input :assigned_users, collection: Task::ASSIGNED_USERS, input_html: { multiple: true }, label: "Assigner à (plusieurs choix possibles):" %>
+        <div class="mt-4">
+          <%= f.input :assigned_users, :as => :check_boxes, collection: Task::ASSIGNED_USERS, input_html: { multiple: true }, label: "Assigner à (plusieurs choix possibles):" %>
         </div>
       </div>
       <div class="col-12 w-100">

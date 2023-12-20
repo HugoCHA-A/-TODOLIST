@@ -17,8 +17,18 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    task.save!
-    redirect_to task_path(task)
+    respond_to do |format|
+      if task.save!
+        UserMailer.with(user: @user).new_task_mailer.deliver_now
+        # format.html { redirect_to(@user, notice: 'Nouvelle tâche créée.') }
+        # format.json { render json: @user, status: :created, location: @user }
+        redirect_to task_path(task)
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def edit

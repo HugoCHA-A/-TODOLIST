@@ -6,17 +6,17 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-puts "Destroying all users..."
+# puts "Destroying all users..."
 
-User.destroy_all
+# User.destroy_all
 
-puts "All users have been destroyed"
-puts "Creating new users..."
+# puts "All users have been destroyed"
+# puts "Creating new users..."
 
-User.create!( nickname: "Drakie", email: "drakie@gmail.com" )
-User.create!( nickname: "Popopom", email: "popopom@gmail.com" )
-User.create!( nickname: "Goldie", email: "goldie@gmail.com" )
-User.create!( nickname: "TheFirst", email: "thefirst@gmail.com" )
-User.create!( nickname: "Crapouax", email: "hugo.antonietti@hotmail.fr" )
+# User.create!( nickname: "Drakie", email: "drakie@gmail.com" )
+# User.create!( nickname: "Popopom", email: "popopom@gmail.com" )
+# User.create!( nickname: "Goldie", email: "goldie@gmail.com" )
+# User.create!( nickname: "TheFirst", email: "thefirst@gmail.com" )
+# User.create!( nickname: "Crapouax", email: "hugo.antonietti@hotmail.fr" )
 
-puts "New users created"
+# puts "New users created"

@@ -1,8 +1,11 @@
 class Task < ApplicationRecord
+
+  has_many :assigned_users
+
   CATEGORY = ["Quotidienne", "Travail", "Hobbies", "Tâches ménagères", "Autre"]
   STATUS = ["En attente", "En cours", "Terminée"]
   PRIORITY = ["Moyenne", "Faible", "Elevée"]
-  USERS = @users.nickname
+  # USERS = @users.nickname
   ASSIGNED_USERS = ["Drakie", "Popopom", "Goldie", "TheFirst", "Crapouax"]
 
 

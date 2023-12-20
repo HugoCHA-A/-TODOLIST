@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_19_092316) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_20_153410) do
+  create_table "assigned_users", force: :cascade do |t|
+    t.integer "task_id"
+    t.integer "user_id"
+    t.index ["task_id"], name: "index_assigned_users_on_task_id"
+    t.index ["user_id"], name: "index_assigned_users_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -21,7 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_092316) do
     t.string "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "assigned_users"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,4 +37,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_19_092316) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "assigned_users", "tasks"
+  add_foreign_key "assigned_users", "users"
 end
